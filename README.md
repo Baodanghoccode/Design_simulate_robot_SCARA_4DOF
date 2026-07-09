@@ -30,19 +30,6 @@ Trajectory Planning  →  Dynamic Control (PID)  →  Hardware (Arduino + motors
 3. **Hardware** — the resulting joint commands are sent over a USB-serial link to an Arduino, which drives the physical motors and reports back real joint positions.
 4. **Visualization** — a Python/Tkinter GUI renders the robot in 3D in real time, using the same forward-kinematics engine whether it's driving a pure simulation or the live hardware.
 
-## Hardware Specifications
-
-| Joint | Type | Mass | Inertia | Link length |
-|---|---|---|---|---|
-| 1 | Revolute | 21.59 kg | 0.5855 kg·m² | 0.2915 m |
-| 2 | Revolute | 62.79 kg | 1.7602 kg·m² | 0.3499 m |
-| 3 | Prismatic | 1.83 kg | 0.00044 kg·m² | 0.4946 m |
-| 4 | Revolute | 0.064 kg | 0.0000414 kg·m² | 0.015 m |
-
-- **Control gains:** `Kp = diag([5000, 5000, 5000, 5000])`, `Kd = diag([300, 300, 300, 300])`
-- **Communication:** USB serial link between PC and Arduino, configurable baud rate (default 115200), with automatic COM-port detection in the Python GUI
-- **Controller board:** Arduino (driving the joint motors and reporting live position feedback)
-
 ## Repository Structure
 
 ```
@@ -79,14 +66,6 @@ q(t) = q0 + (3/T²)(qf - q0)·t² - (2/T³)(qf - q0)·t³
 ## Tech Stack
 
 `MATLAB` · `Simulink` · `SolidWorks` · `Python (Tkinter, Matplotlib, NumPy, PySerial)` · `Arduino`
-
-## Running the Simulator
-
-```bash
-pip install numpy matplotlib pyserial
-python "scara_fk_trajectory(code ve quy dao).py"              # simulation only
-python "scara_fk_arduino (code giao dien+ketnoiarduino).py"   # connects to Arduino
-```
 
 ## Authors
 
