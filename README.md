@@ -36,7 +36,7 @@ Trajectory Planning  →  Dynamic Control (PID)  →  Hardware (Arduino + motors
   <img src="hardware_wiring_diagram.png" width="600" alt="Hardware wiring diagram: Arduino, TB6600 drivers, Nema17 motors, servo and power supply">
 </p>
 
-Arduino Uno as the central controller, driving 4× TB6600 stepper drivers (one per stepper joint) plus a servo for the gripper, powered by a 24V switching power supply.
+Arduino Uno as the central controller, driving 3× TB6600 stepper drivers (one per stepper joint) plus a servo for the gripper, powered by a 24V switching power supply.
 
 ## Repository Structure
 
