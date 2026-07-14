@@ -30,6 +30,14 @@ Trajectory Planning  →  Dynamic Control (PID)  →  Hardware (Arduino + motors
 3. **Hardware** — the resulting joint commands are sent over a USB-serial link to an Arduino, which drives the physical motors and reports back real joint positions.
 4. **Visualization** — a Python/Tkinter GUI renders the robot in 3D in real time, using the same forward-kinematics engine whether it's driving a pure simulation or the live hardware.
 
+## Hardware Wiring Diagram
+
+<p align="center">
+  <img src="media/hardware_wiring_diagram.png" width="600" alt="Hardware wiring diagram: Arduino, TB6600 drivers, Nema17 motors, servo and power supply">
+</p>
+
+Arduino Uno as the central controller, driving 4× TB6600 stepper drivers (one per stepper joint) plus a servo for the gripper, powered by a 24V switching power supply.
+
 ## Repository Structure
 
 ```
@@ -66,6 +74,14 @@ q(t) = q0 + (3/T²)(qf - q0)·t² - (2/T³)(qf - q0)·t³
 ## Tech Stack
 
 `MATLAB` · `Simulink` · `SolidWorks` · `Python (Tkinter, Matplotlib, NumPy, PySerial)` · `Arduino`
+
+## Running the Simulator
+
+```bash
+pip install numpy matplotlib pyserial
+python "scara_fk_trajectory(code ve quy dao).py"              # simulation only
+python "scara_fk_arduino (code giao dien+ketnoiarduino).py"   # connects to Arduino
+```
 
 ## Authors
 
